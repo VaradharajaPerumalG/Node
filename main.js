@@ -1,32 +1,16 @@
-const express =  require('express')
+import movieRoutes from "./routes/moviesRoutes.js"
+import express from 'express'
 const app = express()
 const PORT = 6969 
 
 app.get("/", (req, res) => {
-    res.json({msg: "Hello students!"});
+    res.json({msg:"Hello students!"});
 });
 
 // CRUD functionality 
-
-// R - For Reading
-app.get('/movies', () => {
-
-});
-
-// C - For Creating 
-app.post('/movies', () =>{
-
-});
-
-// U - For Updating
-app.put('/movie/:id', () => {
-
-});
-
-// D -  For Deleting
-app.delete('/movie/:id', () => {
-
-});
+//CLIENT -> MIDDLEWARE -> SERVER
+// CRUD functionality
+app.use('/movies', movieRoutes)
 
 app.listen(PORT, () => {
     console.log(`The server is running at http://localhost:6969`);
